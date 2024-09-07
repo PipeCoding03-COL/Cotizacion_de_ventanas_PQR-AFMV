@@ -1,1 +1,1 @@
-print("Hello")
+print("¿Qué tipo de ventanas desea?")
