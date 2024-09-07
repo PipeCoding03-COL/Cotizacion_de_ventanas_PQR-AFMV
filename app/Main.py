@@ -8,4 +8,4 @@ while True:
     if tipoVentana in estilosVentanas:
         print("Correcto. Continuemos.")
     else:
-        print("El estilo seleccionado no es válido. Por favor, ingrese una de las opciones: O, XO, OXO, OXXO.")
+        print("El estilo seleccionado no es válido. Por favor, ingrese una de las opciones: O, XO, OXO, OXXO")
