@@ -1,0 +1,31 @@
+@startuml
+
+class Nave {
+  + ancho: float
+  + largo: float
+  - valorEsquina: float
+  - valorChapa: float
+}
+
+class Ventana {
+  + ancho: float
+  + largo: float
+  + estilo: string
+  + acabadoAluminio: int
+  + tipoVidrio: int
+  + vidrioEsmerilado: bool
+
+  - calcularCosto()
+  - calcularDesc()
+}
+
+class Vidrio {
+  + tipo: int
+  + esmerilado: bool
+  - valorEsmeriladoPorCm2: float
+}
+
+Nave "*" --* "1" Ventana : "composition"
+Vidrio "1" --|> "1" Nave : "aggregation"
+
+@enduml
