@@ -1,8 +1,16 @@
+"""
 print("¡Hola! Bienvenido a este nuevo software de PQR S.A..")
 print("Siga atentamente las instrucciones para generar su cotización de ventanas con nosotros.\n")
 
 estilosVentanas = ["O", "XO", "OXO", "OXXO"]
 acabadosAluminio = ["Pulido", "Lacado brillante", "Lacado mate", "Anodizado"]
+tiposVidrio = ["Transparente", "Bronce", "Azul"]
+preciosVidriosCm2 = [8.25, 9.15, 12.75]
+vidrioEsmerilado = False
+valorVidrioEsmeriladoCm2 = 5.20
+valorChapas = 16200
+valorEsquinas = 4310
+"""
 
 """#Solicitar al usuario el estilo de ventana y validarlo.
 while True:
@@ -13,7 +21,9 @@ while True:
         print("El estilo seleccionado no es válido. Por favor, ingrese una de las opciones: O, XO, OXO, OXXO.\n")
         """
 
-#Solicitar al usuario el acabado del aluminio y validarlo
+
+"""
+#Solicitar al usuario el acabado del aluminio y validarlo.
 while True:
     print("Listado de acabados disponibles para el aluminio:")
     print("1. Pulido.")
@@ -33,3 +43,21 @@ while True:
         break 
     else:
         print("El acabado seleccionado no es válido. Por favor, ingrese una de las opciones dadas.\n")
+"""
+
+from Ventana import Ventana
+
+class Main:
+    def __init__(self):
+        print("¡Bienvenido al programa principal!")
+
+    def run(self):
+        # Aquí va el código principal de tu programa
+        print()
+        #Ventana(ancho, largo, estilo, acabadoAluminio, tipoVidrio, vidrioEsmerilado)
+        miVentana = Ventana(12, 15, 1, 1, 1, False)
+        print(f"Aluminio: ${miVentana.calcularCostoAluminio()}")
+
+if __name__ == "__main__":
+    app = Main()
+    app.run()
