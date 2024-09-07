@@ -1,6 +1,6 @@
 class Ventana:
     #O = No se puede abrir // X = Sí se puede abrir (debe llevar chapa)
-    estilosVentanas = ["O", "XO", "OXO", "OXXO"]
+    estilosVentanas = ["X", "XO", "OXO", "OXXO"]
     #Acabados del aluminio y su coste por metro lineal
     acabadosAluminio = [["Pulido", "Lacado brillante", "Lacado mate", "Anodizado"],
                         [50700, 54200, 53600, 57300]]
@@ -11,6 +11,8 @@ class Ventana:
     valorVidrioEsmerilado = 5.20
     valorChapas = 16200
     valorEsquinas = 4310
+    naves = 1 #Por ahora
+    esquinas = naves * 4
 
     def __init__(self, ancho, largo, estilo, acabadoAluminio, tipoVidrio, vidrioEsmerilado):
         self.ancho = ancho
@@ -44,3 +46,12 @@ class Ventana:
             valorVidrio += (self.valorVidrioEsmerilado * areaVidrio)
         
         return valorVidrio
+    
+    def calcularValorEsquinas(self):
+        return self.valorEsquinas * self.esquinas
+
+    def calcularValor(self):
+        valor = self.calcularCostoAluminio() + self.calcularValorVidrio() + self.calcularValorEsquinas()
+        valor += self.estilosVentanas[self.estilo - 1].count("X") * self.valorChapas
+
+        return valor
