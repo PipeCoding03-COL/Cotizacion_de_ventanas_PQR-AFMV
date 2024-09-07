@@ -1,16 +1,4 @@
-"""
-print("¡Hola! Bienvenido a este nuevo software de PQR S.A..")
-print("Siga atentamente las instrucciones para generar su cotización de ventanas con nosotros.\n")
-
-estilosVentanas = ["O", "XO", "OXO", "OXXO"]
-acabadosAluminio = ["Pulido", "Lacado brillante", "Lacado mate", "Anodizado"]
-tiposVidrio = ["Transparente", "Bronce", "Azul"]
-preciosVidriosCm2 = [8.25, 9.15, 12.75]
-vidrioEsmerilado = False
-valorVidrioEsmeriladoCm2 = 5.20
-valorChapas = 16200
-valorEsquinas = 4310
-"""
+from Ventana import Ventana
 
 """#Solicitar al usuario el estilo de ventana y validarlo.
 while True:
@@ -45,11 +33,10 @@ while True:
         print("El acabado seleccionado no es válido. Por favor, ingrese una de las opciones dadas.\n")
 """
 
-from Ventana import Ventana
-
 class Main:
     def __init__(self):
-        print("¡Bienvenido al programa principal!")
+        print("¡Hola! Bienvenido a este nuevo software de PQR S.A..")
+        print("Siga atentamente las instrucciones para generar su cotización de ventanas con nosotros.")
 
     def run(self):
         # Aquí va el código principal de tu programa

@@ -1,6 +1,6 @@
 class Ventana:
     #O = No se puede abrir // X = Sí se puede abrir (debe llevar chapa)
-    estilosVentanas = ["X", "XO", "OXO", "OXXO"]
+    estilosVentanas = ["O", "XO", "OXO", "OXXO"]
     #Acabados del aluminio y su coste por metro lineal
     acabadosAluminio = [["Pulido", "Lacado brillante", "Lacado mate", "Anodizado"],
                         [50700, 54200, 53600, 57300]]
