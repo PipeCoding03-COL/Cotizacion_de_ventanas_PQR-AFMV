@@ -43,10 +43,8 @@ class Main:
         print()
         #Ventana(ancho, largo, estilo, acabadoAluminio, tipoVidrio, vidrioEsmerilado)
         miVentana = Ventana(12, 15, 1, 1, 1, False)
-        print(f"Aluminio: ${miVentana.calcularCostoAluminio()}")
-        print(f"Vidrio: ${miVentana.calcularValorVidrio()}")
-        print(f"Valor de las {miVentana.esquinas} esquinas es de: ${miVentana.calcularValorEsquinas()}")
-        print(f"Valor total: ${miVentana.calcularValor()}")
+        miVentana.imprimirDatosVentana()
+        print(f"Valor total: {miVentana.calcularValor()}")
 
 if __name__ == "__main__":
     app = Main()

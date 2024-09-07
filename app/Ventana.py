@@ -11,8 +11,6 @@ class Ventana:
     valorVidrioEsmerilado = 5.20
     valorChapas = 16200
     valorEsquinas = 4310
-    naves = 1 #Por ahora
-    esquinas = naves * 4
 
     def __init__(self, ancho, largo, estilo, acabadoAluminio, tipoVidrio, vidrioEsmerilado):
         self.ancho = ancho
@@ -32,6 +30,9 @@ class Ventana:
         print(f"Valor de ese tipo de vidrio (por centímetro cuadrado): {self.tiposDeVidrio[1][self.tipoVidrio - 1]}")
         print(f"Vidrio esmerilado: {self.vidrioEsmerilado}")
 
+    def calcularCantidadDeNaves(self):
+        return len(self.estilosVentanas[self.estilo - 1])
+
     def calcularCostoAluminio(self):
         costoAluminioPulidoPorM = self.acabadosAluminio[1][self.acabadoAluminio - 1]
         perimetro = 2 * (self.ancho - 6 + self.largo - 6) #Descontar las esquinas
@@ -48,10 +49,23 @@ class Ventana:
         return valorVidrio
     
     def calcularValorEsquinas(self):
-        return self.valorEsquinas * self.esquinas
+        return self.valorEsquinas * self.calcularCantidadDeNaves() * 4
 
     def calcularValor(self):
         valor = self.calcularCostoAluminio() + self.calcularValorVidrio() + self.calcularValorEsquinas()
         valor += self.estilosVentanas[self.estilo - 1].count("X") * self.valorChapas
 
         return valor
+    
+    def calcularValorDeLasNaves(self):
+        tipoNave = self.estilosVentanas[self.estilo - 1]
+        naves = self.calcularCantidadDeNaves()
+        ancho = self.ancho / naves
+        
+        self.imprimirDatosVentana()
+        
+        print(f"Cantidad de naves: {naves}")
+        print(f"Ancho de cada nave: {ancho}")
+
+        for i in tipoNave:
+            print(i)
