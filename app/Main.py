@@ -13,7 +13,7 @@ while True:
         print("El estilo seleccionado no es válido. Por favor, ingrese una de las opciones: O, XO, OXO, OXXO.\n")
         """
 
-#Solicitar al usuario el acabado del aluminio y validarlo.
+#Solicitar al usuario el acabado del aluminio y validarlo
 while True:
     print("Listado de acabados disponibles para el aluminio:")
     print("1. Pulido.")
@@ -25,7 +25,7 @@ while True:
     try:
         tipoAcabado = int(input("\n¿Qué tipo de acabado desea para el aluminio?:"))  
     except ValueError:
-        print("Valor incorrecto, debe ser un número 1-4 .")
+        print("Valor incorrecto, debe ser un número 1-4.")
 
     
     if tipoAcabado >= 1 and tipoAcabado <= 4:
