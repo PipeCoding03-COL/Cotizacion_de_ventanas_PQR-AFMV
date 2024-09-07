@@ -20,7 +20,14 @@ while True:
     print("2. Lacado brillante.")
     print("3. Lacado mate.")
     print("4. Anodizado.")
-    tipoAcabado = int(input("\n¿Qué tipo de acabado desea para el aluminio?:"))
+    tipoAcabado = 0
+
+    try:
+        tipoAcabado = int(input("\n¿Qué tipo de acabado desea para el aluminio?:"))  
+    except ValueError:
+        print("Valor incorrecto, debe ser un número 1-4.")
+
+    
     if tipoAcabado >= 1 and tipoAcabado <= 4:
         print(f"Ha seleccionado: {acabadosAluminio[tipoAcabado - 1]}")
         break 
