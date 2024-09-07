@@ -25,7 +25,7 @@ while True:
     try:
         tipoAcabado = int(input("\n¿Qué tipo de acabado desea para el aluminio?:"))  
     except ValueError:
-        print("Valor incorrecto, debe ser un número 1-4.")
+        print("Valor incorrecto, debe ser un número 1-4 .")
 
     
     if tipoAcabado >= 1 and tipoAcabado <= 4:
