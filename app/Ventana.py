@@ -1,3 +1,5 @@
+from Nave import Nave
+
 class Ventana:
     #O = No se puede abrir // X = Sí se puede abrir (debe llevar chapa)
     estilosVentanas = ["O", "XO", "OXO", "OXXO"]
@@ -33,11 +35,13 @@ class Ventana:
     def calcularCantidadDeNaves(self):
         return len(self.estilosVentanas[self.estilo - 1])
 
+    #Pasado a Nave
     def calcularCostoAluminio(self):
         costoAluminioPulidoPorM = self.acabadosAluminio[1][self.acabadoAluminio - 1]
         perimetro = 2 * (self.ancho - 6 + self.largo - 6) #Descontar las esquinas
         return (perimetro / 100) * costoAluminioPulidoPorM
 
+    #Pasado a Nave
     def calcularValorVidrio(self):
         areaVidrio = (self.ancho - 3) * (self.largo - 3)
         valorPorCm2 = self.tiposDeVidrio[1][self.tipoVidrio - 1]
@@ -61,6 +65,7 @@ class Ventana:
         tipoNave = self.estilosVentanas[self.estilo - 1]
         naves = self.calcularCantidadDeNaves()
         ancho = self.ancho / naves
+        valor = 0
         
         self.imprimirDatosVentana()
         
@@ -68,4 +73,6 @@ class Ventana:
         print(f"Ancho de cada nave: {ancho}")
 
         for i in tipoNave:
-            print(i)
+            nave = Nave(ancho, self.largo, i)
+            print(f"Valor aluminio nave {i}: {nave.calcularCostoAluminio(self.acabadosAluminio[1][self.acabadoAluminio - 1])}")
+            print(f"Valor vidrio nave {i}: {nave.calcularValorVidrio(self.tiposDeVidrio[1][self.tipoVidrio - 1], self.vidrioEsmerilado)}")
