@@ -58,10 +58,6 @@ class Ventana:
     def calcularValorEsquinas(self):
         return self.valorEsquinas * self.calcularCantidadDeNaves() * 4
 
-    def calcularValor(self):
-        valor = self.calcularCostoAluminio() + self.calcularValorVidrio() + self.calcularValorEsquinas()
-
-        return valor
     
     def calcularValorDeLasNaves(self):
         naves = self.calcularCantidadDeNaves()
