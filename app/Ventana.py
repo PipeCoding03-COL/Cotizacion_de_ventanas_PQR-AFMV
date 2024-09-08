@@ -22,6 +22,11 @@ class Ventana:
         self.vidrioEsmerilado = vidrioEsmerilado
         self.cantidad = cantidad
 
+        if vidrioEsmerilado == 1:
+            vidrioEsmerilado = True
+        if vidrioEsmerilado == 2:
+            vidrioEsmerilado = False
+
     def imprimirDatosVentana(self):
         print(f"Ancho: {self.ancho} cm")
         print(f"Largo: {self.largo} cm")
