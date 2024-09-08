@@ -11,14 +11,16 @@ class Ventana:
     valorVidrioEsmerilado = 5.20
     valorChapas = 16200
     valorEsquinas = 4310
+    valorTotal = 0
 
-    def __init__(self, ancho, largo, estilo, acabadoAluminio, tipoVidrio, vidrioEsmerilado):
+    def __init__(self, ancho, largo, estilo, acabadoAluminio, tipoVidrio, vidrioEsmerilado, cantidad):
         self.ancho = ancho
         self.largo = largo
         self.estilo = estilo
         self.acabadoAluminio = acabadoAluminio
         self.tipoVidrio = tipoVidrio
         self.vidrioEsmerilado = vidrioEsmerilado
+        self.cantidad = cantidad
 
     def imprimirDatosVentana(self):
         print(f"Ancho: {self.ancho} cm")
@@ -63,7 +65,9 @@ class Ventana:
         valorVidrio = self.calcularValorVidrio()
         valorPorNave = valorAluminio + valorVidrio
         valorTotal = valorPorNave * naves
+        valorTotal += self.calcularValorEsquinas()
         valorTotal += self.estilosVentanas[self.estilo - 1].count("X") * self.valorChapas
+        self.valorTotal = valorTotal
         
         print(f"\nCantidad de naves: {naves}")
         print(f"Ancho de cada nave: {self.ancho}")
@@ -71,6 +75,15 @@ class Ventana:
         print(f"\nCosto aluminio: ${valorAluminio}")
         print(f"Costo vidrio: ${valorVidrio}")
         print(f"Costo por nave: ${valorPorNave}")
-        print(f"\nValor de las {naves} naves: {valorTotal}")
+        print(f"\nValor total de la ventana: ${valorTotal}")
+        print(f"Importe total ({self.cantidad} ventanas): ${self.valorTotal * self.cantidad}")
 
-        return valorTotal
+        self.calcularDescuento()
+
+    def calcularDescuento(self):
+        if self.cantidad > 100:
+            print("La cantidad de ventanas a fabricar sí supera las 100.")
+            print("Por lo tanto, tiene derecho al %10 de desceunto.")
+            print(f"Nuevo precio a pagar: {self.valorTotal * self.cantidad * 0.9}")
+        else:
+            print("No supera las 100 ventanas a fabricar, por lo que no tiene derecho al descuento del 10%.")
