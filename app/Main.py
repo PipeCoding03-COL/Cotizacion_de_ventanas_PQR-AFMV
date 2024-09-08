@@ -42,9 +42,11 @@ class Main:
         # Aquí va el código principal de tu programa
         print()
         #Ventana(ancho, largo, estilo, acabadoAluminio, tipoVidrio, vidrioEsmerilado)
-        miVentana = Ventana(12, 15, 1, 1, 1, False)
+        miVentana = Ventana(25, 30, 2, 3, 3, True)
         miVentana.imprimirDatosVentana()
-        print(f"Valor total: {miVentana.calcularValor()}")
+        #print(f"Valor total: {miVentana.calcularValorDeLasNaves()}")
+        miVentana.calcularValorDeLasNaves()
+        #print(f"Costo total: ${miVentana.calcularValorDeLasNaves()}")
 
 if __name__ == "__main__":
     app = Main()

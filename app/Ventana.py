@@ -53,19 +53,24 @@ class Ventana:
 
     def calcularValor(self):
         valor = self.calcularCostoAluminio() + self.calcularValorVidrio() + self.calcularValorEsquinas()
-        valor += self.estilosVentanas[self.estilo - 1].count("X") * self.valorChapas
 
         return valor
     
     def calcularValorDeLasNaves(self):
-        tipoNave = self.estilosVentanas[self.estilo - 1]
         naves = self.calcularCantidadDeNaves()
-        ancho = self.ancho / naves
+        self.ancho /= naves
+        valorAluminio = self.calcularCostoAluminio()
+        valorVidrio = self.calcularValorVidrio()
+        valorPorNave = valorAluminio + valorVidrio
+        valorTotal = valorPorNave * naves
+        valorTotal += self.estilosVentanas[self.estilo - 1].count("X") * self.valorChapas
         
-        self.imprimirDatosVentana()
-        
-        print(f"Cantidad de naves: {naves}")
-        print(f"Ancho de cada nave: {ancho}")
+        print(f"\nCantidad de naves: {naves}")
+        print(f"Ancho de cada nave: {self.ancho}")
 
-        for i in tipoNave:
-            print(i)
+        print(f"\nCosto aluminio: ${valorAluminio}")
+        print(f"Costo vidrio: ${valorVidrio}")
+        print(f"Costo por nave: ${valorPorNave}")
+        print(f"\nValor de las {naves} naves: {valorTotal}")
+
+        return valorTotal
