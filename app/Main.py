@@ -119,7 +119,7 @@ class Main:
             try:
                 cantidad = int(input("Cantidad de ventanas a fabricar: ") )
 
-                if cantidad >= 10:
+                if cantidad < 1:
                     break 
                 else:
                     print("La opción seleccionada no es válida, pues es menor de lo permitido. Por favor, intente nuevamente.\n")

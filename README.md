@@ -17,8 +17,8 @@ de la empresa PQR a la hora de fabricar ventanas en aluminio.
 2. Crear y activar el entorno virtual:
     ```bash
     python3 -m venv venv
-    source venv/bin/activate  # Linux/MacOS
-    venv\scripts\activate  # Windows
+    source venv/bin/activate #Linux/MacOS
+    venv\scripts\activate #Windows
     ```
 3. Instalar las dependencias:
     ```bash
@@ -28,4 +28,5 @@ de la empresa PQR a la hora de fabricar ventanas en aluminio.
 ## Ejecución
 Para ejecutar el proyecto, usa el siguiente comando:
 ```bash
-python \app\Main.py
+python app\Main.py #Windows
+python app/Main.py #Linux/MacOS
